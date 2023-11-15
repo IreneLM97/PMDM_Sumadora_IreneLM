@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Sumadora</string>
+    <string name="sumadora">Sumadora</string>
+    <string name="start_message">¿Qué operación quieres realizar?</string>
+    <string name="primer_numero">Primer número</string>
+    <string name="segundo_numero">Segundo número</string>
+    <string name="sumar">+</string>
+    <string name="summary_message">Historial de operaciones</string>
+    <string name="operation">%1$s + %2$s = %3$s</string>
+    <string name="back_button">Volver atrás</string>
 </resources>
