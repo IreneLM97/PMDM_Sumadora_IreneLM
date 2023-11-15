@@ -11,6 +11,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.sumadora.ui.theme.SumadoraTheme
 
+/**
+ * Clase principal de la aplicación que representa la actividad principal.
+ */
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +31,9 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+/**
+ * Vista previa de la aplicación.
+ */
 @Preview(showBackground = true)
 @Composable
 fun SumadoraAppPreview() {

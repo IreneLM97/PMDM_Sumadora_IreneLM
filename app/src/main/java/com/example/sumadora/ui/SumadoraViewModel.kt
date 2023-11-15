@@ -8,6 +8,9 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 
+/**
+ * ViewModel que permite mantener el estado de la aplicación.
+ */
 class SumadoraViewModel : ViewModel() {
 
     // Variable que representa la información de la interfaz de usuario

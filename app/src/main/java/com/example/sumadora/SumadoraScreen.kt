@@ -22,7 +22,7 @@ import com.example.sumadora.ui.StartScreen
 import com.example.sumadora.ui.SummaryScreen
 
 /**
- * Enumeración que define los posibles estados de pantalla de la aplicación.
+ * Enumeración que define las posibles pantallas de la aplicación.
  */
 enum class SumadoraScreen {
     Start,  // pantalla que muestra la operación actual
@@ -42,6 +42,7 @@ fun SumadoraApp(
     navController: NavHostController = rememberNavController(),
 ) {
     Scaffold(
+        // Barra personalizada
         topBar = {
             TopAppBar(
                 title = {
@@ -53,8 +54,10 @@ fun SumadoraApp(
             )
         }
     ) { innerPadding ->
+        // Variable de estado
         val uiState by viewModel.uiState.collectAsState()
 
+        // Navegación
         NavHost(
             navController = navController,
             startDestination = SumadoraScreen.Start.name,
@@ -64,7 +67,7 @@ fun SumadoraApp(
                 StartScreen(
                     viewModel = viewModel,
                     onClickButton = {
-                        navController.navigate(SumadoraScreen.Summary.name)
+                        navController.navigate(SumadoraScreen.Summary.name)  // navegamos a pantalla de resumen
                     }
                 )
             }
@@ -73,7 +76,7 @@ fun SumadoraApp(
                 SummaryScreen(
                     sumadoraUiState = uiState,
                     onBackClick = {
-                        navController.popBackStack()
+                        navController.popBackStack()  // retroceder en la pila de navegación
                     }
                 )
             }

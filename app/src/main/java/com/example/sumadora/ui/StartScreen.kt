@@ -35,11 +35,18 @@ import androidx.compose.ui.unit.sp
 import com.example.sumadora.R
 import com.example.sumadora.models.Suma
 
+/**
+ * Función que representa la pantalla de inicio de la aplicación.
+ *
+ * @param viewModel ViewModel para manejar el estado de la aplicación
+ * @param onClickButton acción a realizar cuando se hace click en el botón
+ */
 @Composable
 fun StartScreen(
     viewModel: SumadoraViewModel = viewModel(),
     onClickButton: (Suma) -> Unit = {}
 ) {
+    // Campos de números
     var n1Input by rememberSaveable  { mutableStateOf("") }
     var n2Input by rememberSaveable  { mutableStateOf("") }
 
@@ -54,6 +61,7 @@ fun StartScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
+        // Mensaje al usuario
         Text(
             text = stringResource(id = R.string.start_message),
             fontSize = 20.sp,
@@ -62,6 +70,7 @@ fun StartScreen(
                 .padding(bottom = 16.dp)
         )
 
+        // Campo número 1
         EditNumberField(
             label = R.string.primer_numero,
             keyboardOptions = KeyboardOptions.Default.copy(
@@ -75,6 +84,7 @@ fun StartScreen(
                 .fillMaxWidth()
         )
 
+        // Campo número 2
         EditNumberField(
             label = R.string.segundo_numero,
             keyboardOptions = KeyboardOptions.Default.copy(
@@ -90,7 +100,7 @@ fun StartScreen(
 
         Spacer(Modifier.height(5.dp))
 
-        // Botón para enviar a otra aplicación
+        // Botón para realizar operación
         Row(
             modifier = Modifier
                 .padding(top = 20.dp)
@@ -111,6 +121,7 @@ fun StartScreen(
                     n1Input = ""
                     n2Input = ""
 
+                    // Evento que viene de SumadoraScreen
                     onClickButton(currentSuma)
                 },
                 colors = ButtonDefaults.buttonColors(colorResource(id = R.color.my_darkest_purple)),
@@ -124,6 +135,15 @@ fun StartScreen(
     }
 }
 
+/**
+ * Función que representa un campo de edición de número.
+ *
+ * @param label recurso de cadena para la etiqueta del campo
+ * @param keyboardOptions opciones del teclado para el campo de texto
+ * @param value valor del campo
+ * @param onValueChanged función para manejar cambios en el valor del campo
+ * @param modifier modificador para personalizar el diseño del campo
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun EditNumberField(
@@ -143,6 +163,9 @@ fun EditNumberField(
     )
 }
 
+/**
+ * Función para previsualizar la pantalla.
+ */
 @Preview
 @Composable
 fun StartScreenPreview() {

@@ -28,6 +28,12 @@ import com.example.sumadora.R
 import com.example.sumadora.models.Suma
 import com.example.sumadora.models.SumadoraUiState
 
+/**
+ * Función que representa la pantalla de resumen de la aplicación.
+ *
+ * @param sumadoraUiState estado actual de la interfaz de usuario
+ * @param onBackClick función para manejar el click en el botón de retroceso
+ */
 @Composable
 fun SummaryScreen(
     sumadoraUiState: SumadoraUiState,
@@ -40,7 +46,7 @@ fun SummaryScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        // Última operación
+        // Última suma realizada
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -114,7 +120,7 @@ fun SummaryScreen(
                 modifier = Modifier
                     .fillMaxWidth(),
                 onClick = {
-                    onBackClick()
+                    onBackClick()  // este evento se define en SumadoraScreen
                 },
                 colors = ButtonDefaults.buttonColors(colorResource(id = R.color.my_darkest_purple)),
             ) {
@@ -124,6 +130,9 @@ fun SummaryScreen(
     }
 }
 
+/**
+ * Función para previsualizar la pantalla de resumen de la aplicación.
+ */
 @Preview
 @Composable
 fun SummaryScreenPreview() {
